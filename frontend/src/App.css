@@ -1,25 +1,55 @@
-.nav-ul li{
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.nav-ul li {
   display: inline;
   padding: 10px;
   direction: none;
 }
 
-
-.nav-ul a{
+.nav-ul a {
   color: #fff;
   padding: 5px;
   text-decoration: none;
 }
 
 .nav-ul {
- padding: 5px;
- margin: o;
- background-color: gray;
+  padding: 5px;
+  margin: 0;
+  background-color: gray;
 }
-.footer{
+
+.footer {
   position: absolute;
   bottom: 0;
   text-align: center;
   width: 100%;
   background-color: gray;
+}
+
+
+
+.signup {
+  display: flex;
+  flex-direction: column;  /* Arrange children in a column */
+  align-items: center;     /* Center children horizontally */
+}
+
+.input {
+  display: block;
+  margin: 10px 0;          /* Margin between inputs */
+  padding: 7px;
+  width: 300px;
+  border: 1px solid gray;
+  text-align: center;
+}
+
+.button{
+  margin: 25px;
+  padding: 10px;
+  background-color: gray;
+  border: 1px solid;
+  cursor: pointer;
 }

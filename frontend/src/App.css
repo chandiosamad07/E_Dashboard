@@ -3,3 +3,23 @@
   padding: 10px;
   direction: none;
 }
+
+
+.nav-ul a{
+  color: #fff;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.nav-ul {
+ padding: 5px;
+ margin: o;
+ background-color: gray;
+}
+.footer{
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color: gray;
+}

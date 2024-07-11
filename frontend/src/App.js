@@ -1,7 +1,10 @@
 
 import './App.css';
-import Nav from './Nav';
+import Footer from './Components/Footer';
+
+import Nav from './Components/Nav';
 import { BrowserRouter,Route ,Routes} from 'react-router-dom';
+
 function App() {
   return (
     <>
@@ -14,6 +17,7 @@ function App() {
       <Route path='/logout'element={<h1>logout Component</h1>}></Route>
       <Route path='/profile'element={<h1>Profile Product list Component</h1>}></Route>
     </Routes>
+    <Footer></Footer>
     </BrowserRouter>
     </>
   );

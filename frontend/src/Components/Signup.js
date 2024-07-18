@@ -1,6 +1,6 @@
 import { useState } from "react"
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
+import {json, useNavigate} from 'react-router-dom'
 
 const Signup = () => {
     const [name,setName]=useState("");
@@ -19,9 +19,9 @@ const Signup = () => {
         });
         result = await result.json();
         console.log(result);
-        if(result){
+     localStorage.setItem('user',JSON.stringify(result));
           navigate('/')
-        }
+        
         }
         
   return (

@@ -6,6 +6,8 @@ import Nav from './Components/Nav';
 import { BrowserRouter,Route ,Routes} from 'react-router-dom';
 import Signup from './Components/Signup';
 import PrivateComponent from './Components/PrivateComponent';
+import Login from './Components/Login';
+
 function App() {
   return (
     <>
@@ -21,6 +23,7 @@ function App() {
       <Route path='/profile'element={<h1>Profile Product list Component</h1>}></Route>
     </Route>
       <Route path='/signup'element={<Signup/>} />
+      <Route path='/login' element={<Login/>} />
     </Routes>
     <Footer></Footer>
     </BrowserRouter>

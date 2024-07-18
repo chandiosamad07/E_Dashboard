@@ -36,6 +36,13 @@ html, body {
   flex-direction: column;  /* Arrange children in a column */
   align-items: center;     /* Center children horizontally */
 }
+.login {
+  display: flex;
+  flex-direction: column;  /* Arrange children in a column */
+  align-items: center;  
+  padding-top: 10%;   /* Center children horizontally */
+}
+
 
 .input {
   display: block;

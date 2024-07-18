@@ -1,9 +1,11 @@
 const express = require('express')
+const cors = require('cors')
 const app =  express()
 require('./DB/config')
 const User = require('./DB/User');
 
 app.use(express.json())
+app.use(cors())
 
 app.post('/register',async (req,res)=>{
     let user = new User(req.body)

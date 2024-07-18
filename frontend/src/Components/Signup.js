@@ -1,12 +1,20 @@
-import { useState } from "react"
+import {useEffect,useState } from "react"
 import React from 'react'
-import {json, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const Signup = () => {
     const [name,setName]=useState("");
     const [email, setEmail]=useState("");
     const [password ,setPassword] = useState("");
     const navigate = useNavigate();
+
+    useEffect(()=>{
+      const auth =localStorage.getItem('user');
+      if(auth){
+        navigate('/')
+      }
+    })
+
     const CollectData= async ()=>{
         console.log(name,email,password)
 

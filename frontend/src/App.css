@@ -60,3 +60,7 @@ html, body {
   border: 1px solid;
   cursor: pointer;
 }
+
+.product{
+  margin-left: 35%;
+}

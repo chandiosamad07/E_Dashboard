@@ -3,7 +3,7 @@ const cors = require('cors')
 const app =  express()
 require('./DB/config')
 const User = require('./DB/User');
-
+const Product = require('./DB/Product')
 app.use(express.json())
 app.use(cors())
 
@@ -29,6 +29,12 @@ app.post('/login',async(req,res)=>{
     else{
         res.send('user not found')
     }
+})
+
+app.post('/add-product',async (req,res)=>{
+    let product = new Product(req.body);
+    let result = await product.save();
+    res.send(result);
 })
 app.get('/',(req,res)=>{
     res.send("Backend is working")

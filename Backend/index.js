@@ -36,6 +36,17 @@ app.post('/add-product',async (req,res)=>{
     let result = await product.save();
     res.send(result);
 })
+
+app.get('/product-list',async(req,res)=>{
+    let products =await Product.find();
+    if(products.length>0){
+        res.send(products)
+    }
+    else{
+        res.send({result:"Product Not Found"})
+    }
+})
+
 app.get('/',(req,res)=>{
     res.send("Backend is working")
 })

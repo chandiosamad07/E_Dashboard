@@ -47,6 +47,11 @@ app.get('/product-list',async(req,res)=>{
     }
 })
 
+app.delete('/delete/:id',async(req,res)=>{
+    const result = await Product.deleteOne({_id:req.params.id})
+    res.send(result)
+})
+
 app.get('/',(req,res)=>{
     res.send("Backend is working")
 })

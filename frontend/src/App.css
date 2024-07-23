@@ -64,3 +64,6 @@ html, body {
 .product{
   margin-left: 35%;
 }
+.invalid-input{
+  color: red;
+}

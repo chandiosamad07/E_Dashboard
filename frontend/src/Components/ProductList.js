@@ -18,19 +18,26 @@ const ProductList = () => {
     }, []);
 
     return (
-        <>
+        <div className='product-list'>
             <h1>Product List</h1>
             <ul>
-                {products.map((item) => (
-                    <li key={item._id}>
-                        <h4>Name: {item.name}</h4>
-                        <h4>Company: {item.company}</h4>
-                        <h4>Price: {item.price}</h4>
-                        <h4>Category: {item.category}</h4>
-                    </li>
+                        <li>S no</li>
+                        <li>Name</li>
+                        <li>company</li>
+                        <li> price</li>
+                        <li>category</li>
+                    </ul>
+                {products.map((item,index) => (
+                    <ul key={item._id}>
+                        <li>{index+1}</li>
+                        <li>{item.name}</li>
+                        <li> {item.company}</li>
+                        <li> {item.price}</li>
+                        <li>{item.category}</li>
+                    </ul>
                 ))}
-            </ul>
-        </>
+           
+        </div>
     );
 };
 

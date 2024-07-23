@@ -4,19 +4,29 @@ const ProductList = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('http://localhost:5000/product-list');
-                const result = await response.json();
-                console.log(result);
-                setProducts(result);
-            } catch (error) {
-                console.warn('API Not Found', error);
-            }
-        };
         fetchData();
     }, []);
+    const fetchData = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/product-list');
+            const result = await response.json();
+            console.log(result);
+            setProducts(result);
+        } catch (error) {
+            console.warn('API Not Found', error);
+        }
+    };
 
+    const deleteProduct= async(id)=>{
+        let result = await fetch(`http://localhost:5000/delete/${id}`,{
+            method:'Delete'
+        })
+        result = await result.json();
+        if(result){
+            fetchData();
+        }
+       
+    }
     return (
         <div className='product-list'>
             <h1>Product List</h1>
@@ -26,6 +36,7 @@ const ProductList = () => {
                         <li>company</li>
                         <li> price</li>
                         <li>category</li>
+                        <li>Operation</li>
                     </ul>
                 {products.map((item,index) => (
                     <ul key={item._id}>
@@ -34,6 +45,8 @@ const ProductList = () => {
                         <li> {item.company}</li>
                         <li> {item.price}</li>
                         <li>{item.category}</li>
+                        <li><button onClick={()=>deleteProduct(item._id)}>Delete</button></li>
+                        
                     </ul>
                 ))}
            

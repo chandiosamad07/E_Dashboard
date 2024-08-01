@@ -21,7 +21,7 @@ function App() {
       <Route path='/'element={<ProductList/>}></Route>
      
       <Route path='/add'element={<AddProduct />}/>
-      <Route path='/update'element={<h1>Update Product Component</h1>}></Route>
+      <Route path='/update/:id'element={<h1>Update Product Component</h1>}></Route>
       <Route path='/logout'element={<h1>logout Component</h1>}></Route>
       <Route path='/profile'element={<h1>Profile Product list Component</h1>}></Route>
     </Route>

@@ -52,8 +52,18 @@ app.delete('/delete/:id',async(req,res)=>{
     res.send(result)
 })
 
-app.get('/',(req,res)=>{
-    res.send("Backend is working")
+app.get('/product/:id',async(req,res)=>{
+    let result = await Product.findOne({_id:req.params.id})
+    if(result){
+        res.send(result)
+    }
+    else{
+        res.send({result : "No record Found"})
+    }
 })
+
+// app.get('/',(req,res)=>{
+//     res.send("Backend is working")
+// })
 
 app.listen(5000)

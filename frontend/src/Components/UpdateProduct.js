@@ -1,4 +1,5 @@
-import React ,{useState}from 'react'
+import React ,{useEffect, useState}from 'react'
+import { useParams } from 'react-router-dom'
 
 const UpdateProduct = () => {
     const [name ,setName]=useState('')
@@ -6,7 +7,20 @@ const UpdateProduct = () => {
     const [category,setCategory]=useState('')
     const [company,setCompany]=useState('')
     const[error ,setError]=useState(false)
-    
+    const params = useParams()
+
+    useEffect(()=>{
+        console.log(params)
+        const getProductdetails = async()=>{
+        let result = await fetch(`http://localhost:5000/product/${params.id}`);
+        result = await result.json()
+        setName(result.name)
+        setPrice(result.price)
+        setCategory(result.category)
+        setCompany(result.company)
+        }
+        getProductdetails()
+    },[])
     const update = async()=>{
       console.log(name,price,category,company)
     }
@@ -22,7 +36,7 @@ const UpdateProduct = () => {
         <input type='text' placeholder='enter product company' className='input'value={company} onChange={(e)=>setCompany(e.target.value)}/> 
         {error && !company && <span className='invalid-input'>Enter Valid company</span>}
         
-       <button className='button' onClick={update}>Update Product</button>
+       <button className='button' onClick={update}>Update    Product</button>
         </div>
   )
 }

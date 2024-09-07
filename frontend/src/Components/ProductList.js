@@ -11,8 +11,12 @@ const ProductList = () => {
         try {
             const response = await fetch('http://localhost:5000/product-list');
             const result = await response.json();
-            console.log(result);
-            setProducts(result);
+            if (Array.isArray(result)) {
+                setProducts(result);
+            } else {
+                console.warn('API did not return an array:', result);
+                setProducts([]); 
+            }
         } catch (error) {
             console.warn('API Not Found', error);
         }
